@@ -32,7 +32,7 @@ public class Builditgreensampletext {
 	@Test
 	public void testBuilditgreensampletext() throws Exception {
 		driver.get(baseUrl);
-		driver.findElement(By.linkText("Contact")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Contact')]")).click();
 		driver.findElement(By.name("Submit")).click();
 		assertTrue(driver.getPageSource().contains("Please re-enter the code displayed in the image below. "));
 	}
