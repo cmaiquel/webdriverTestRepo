@@ -24,7 +24,7 @@ public class Builditgreensampletext {
         FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
         firefoxBinary.setEnvironmentProperty("DISPLAY", xport);
 		
-		driver = new FirefoxDriver();
+		driver = new FirefoxDriver(firefoxBinary,null);
 		baseUrl = "http://builditgreen.org/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
