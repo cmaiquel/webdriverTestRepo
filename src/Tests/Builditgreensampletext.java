@@ -20,7 +20,7 @@ public class Builditgreensampletext {
 		
 		String xport=System.getProperty("lmportal.xvfb.id", ":1");
 		final File firefoxPath = new File(System.getProperty(
-                "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
+                "lmportal.deploy.firefox.path", "/opt/firefox/firefox"));
         FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
         firefoxBinary.setEnvironmentProperty("DISPLAY", xport);
 		
