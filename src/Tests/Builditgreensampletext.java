@@ -3,6 +3,8 @@ package Tests;
 import java.io.File;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -35,6 +37,9 @@ public class Builditgreensampletext {
 		driver.findElement(By.xpath("//a[contains(text(),'Contact')]")).click();
 		driver.findElement(By.name("Submit")).click();
 		assertTrue(driver.getPageSource().contains("Please re-enter the code displayed in the image below. "));
+		//Take a screenshot of the result
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File("/var/lib/jenkins/workspace/testWD/screenshots/Builditgreensampletext.png"));
 	}
 
 	@After
