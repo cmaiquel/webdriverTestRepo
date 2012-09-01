@@ -1,35 +1,19 @@
 package Tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
-public class Builditgreensampletext {
-	private WebDriver driver;
-	private String baseUrl;
-	private StringBuffer verificationErrors = new StringBuffer();
-	@Before
-	public void setUp() throws Exception {
-		
-		String xport=System.getProperty("lmportal.xvfb.id", ":1");
-		final File firefoxPath = new File(System.getProperty(
-                "lmportal.deploy.firefox.path", "/opt/firefox/firefox"));
-        FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
-        firefoxBinary.setEnvironmentProperty("DISPLAY", xport);
-		
-		driver = new FirefoxDriver(firefoxBinary,null);
-		baseUrl = "http://builditgreen.org/";
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	}
+import Tests.Base.TestBase;
+
+public class Builditgreensampletext extends TestBase{
+
 
 	@Test
 	public void testBuilditgreensampletext() throws Exception {
@@ -42,21 +26,5 @@ public class Builditgreensampletext {
 		FileUtils.copyFile(scrFile, new File("/var/lib/jenkins/workspace/testWD/screenshots/Builditgreensampletext.png"));
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
-		}
-	}
-
-	private boolean isElementPresent(By by) {
-		try {
-			driver.findElement(by);
-			return true;
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-	}
+	
 }

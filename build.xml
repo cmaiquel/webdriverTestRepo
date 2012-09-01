@@ -70,7 +70,11 @@
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="Tests.Builditgreensampletext" todir="${junit.output.dir}"/>
+        	<batchtest todir="${junit.output.dir}">		
+        		<fileset dir="src">
+        	          <include name="Tests/*.java"/>
+        	    </fileset>
+        	</batchtest>
             <classpath refid="WebDriverTest.classpath"/>
         </junit>
     </target>
