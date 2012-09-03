@@ -24,19 +24,27 @@ public class Builditgreensampletext1 extends TestBase{
 		driver.findElement(By.name("notes")).clear();
 		driver.findElement(By.name("notes")).sendKeys("this is a selenium test");
 		driver.findElement(By.name("Submit")).click();
+		//Take a screenshot of the result
+		this.takeScreenshot("/var/lib/jenkins/workspace/testWD/screenshots/",this.getClass().getName()+"_step_1.png");
 		assertTrue(driver.getPageSource().contains("Please re-enter the code displayed in the image below."));
 		driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
 		driver.findElement(By.name("Submit")).click();
+		//Take a screenshot of the result
+		this.takeScreenshot("/var/lib/jenkins/workspace/testWD/screenshots/",this.getClass().getName()+"_step_2.png");
 		assertTrue(driver.getPageSource().contains("Please log in. If you do not have an account, please register for an account below."));
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys("test");
 		driver.findElement(By.name("password")).clear();
 		driver.findElement(By.name("password")).sendKeys("test");
 		driver.findElement(By.name("Submit")).click();
+		//Take a screenshot of the result
+		this.takeScreenshot("/var/lib/jenkins/workspace/testWD/screenshots/",this.getClass().getName()+"_step_3.png");
 		assertTrue(driver.getPageSource().contains("Login did not succeed.  Please try again."));
 		driver.findElement(By.xpath("//a[contains(text(),'Start Here')]")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Register now')]")).click();
 		driver.findElement(By.name("Submit")).click();
+		//Take a screenshot of the result
+		this.takeScreenshot("/var/lib/jenkins/workspace/testWD/screenshots/",this.getClass().getName()+"_step_4.png");
 		assertTrue(driver.getPageSource().contains("Please re-enter the code displayed in the image below.")); 
 	}
 
